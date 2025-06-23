@@ -21,15 +21,30 @@ public class FormTest {
         $("#lastName").setValue("Testov");
         $("#userEmail").setValue("test@test.com");
         $("#gender-radio-1").parent().click();
-        $("#userNumber").setValue("+79999999999");
+        $("#userNumber").setValue("9899499099");
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select").selectOption("May");
+        $(".react-datepicker__year-select").selectOption("1996");
+        $(".react-datepicker__day--029:not(.react-datepicker__day--outside-month)").click();
+        $("#subjectsInput").setValue("Physics").pressEnter();
+        $("#subjectsInput").setValue("Maths").pressEnter();
+        $("#hobbies-checkbox-1").parent().click();
+        $("#uploadPicture").uploadFromClasspath("img/Photo.png");
+        $("#currentAddress").setValue("Екатеринбург, Родонитовая, 5с1");
+        $("#react-select-3-input").setValue("J").pressEnter();
+        $("#react-select-4-input").setValue("J").pressEnter();
+        $("#submit").pressEnter();
 
-        $(".react-datepicker__month-select").setValue("Another street 1");
-        $("#dateOfBirthInput").click();
-        $("#output").$("#name").shouldHave(text("Yana"));
-        $("#output #email").shouldHave(text("yana@gmail.com"));
-        $("#currentAddress", 1).shouldHave(text("Some street 1"));
-        $("#output").$("#permanentAddress").shouldHave(text("Another street 1"));
+        //Проверка формы
+        $(".table-responsive").shouldHave(text("Test Testov"));
+        $(".table-responsive").shouldHave(text("test@test.com"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("9899499099"));
+        $(".table-responsive").shouldHave(text("29 May,1996"));
+        $(".table-responsive").shouldHave(text("Physics, Maths"));
+        $(".table-responsive").shouldHave(text("Sports"));
+        $(".table-responsive").shouldHave(text("Photo.png"));
+        $(".table-responsive").shouldHave(text("Екатеринбург, Родонитовая, 5с1"));
+        $(".table-responsive").shouldHave(text("Rajasthan Jaipur"));
     }
 }
