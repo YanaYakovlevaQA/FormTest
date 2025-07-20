@@ -1,19 +1,19 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 public class FormTestWithPageObject extends SetUp {
 
+    RegistrationPage registrationPage = new RegistrationPage();
+
     @Test
-    void formTest() {
-        open("/automation-practice-form");
-        $("#firstName").setValue("Test");
-        $("#lastName").setValue("Testov");
+    void formTestWithPageObject() {
+        registrationPage.openPage();
+        registrationPage.SetFirstName("Test");
+        registrationPage.SetLastName("Testov");
         $("#userEmail").setValue("test@test.com");
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("9899499099");
