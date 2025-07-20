@@ -7,14 +7,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class FormTestWithPageObject {
-    @BeforeAll
-    static void setUp () {
-        Configuration.browserSize = "1920x1980";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com";
-        // Configuration.holdBrowserOpen = true; конфигурация для проверки теста
-    }
+public class FormTestWithPageObject extends SetUp {
 
     @Test
     void formTest() {
