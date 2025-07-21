@@ -1,17 +1,29 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import pages.Components.CalendarComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
+
+    CalendarComponent calendarComponent = new CalendarComponent();
+
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genterInput = $("#genterWrapper"),
-            userNumberInput = $("#userNumber");
+            userNumberInput = $("#userNumber"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesInput = $("#hobbiesWrapper"),
+            uploadPicture = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            selectState = $("#react-select-3-input"),
+            selectCity = $("#react-select-4-input"),
+            submitButton = $("#submit");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -48,4 +60,49 @@ public class RegistrationPage {
 
         return this;
     }
+
+    public RegistrationPage SetDateOfBirth (String day, String month, String year) {
+        dateOfBirthInput.click();
+        calendarComponent.setDate(day, month, year);
+
+        return this;
+    }
+
+    public RegistrationPage SetSubjects(String value) {
+        subjectsInput.setValue(value).pressEnter();
+
+        return this;
+}
+
+    public RegistrationPage SetHobbies(String value) {
+        hobbiesInput.$(byText(value)).click();
+
+        return this;
+    }
+
+    public RegistrationPage SetPicture(String value) {
+        uploadPicture.uploadFromClasspath(value);
+
+        return this;
+    }
+
+    public RegistrationPage SetAddress(String value) {
+        addressInput.setValue(value);
+
+        return this;
+    }
+
+    public RegistrationPage SetStateAndCity(String state, String city) {
+        selectState.setValue(state).pressEnter();
+        selectCity.setValue(city).pressEnter();
+
+        return this;
+    }
+
+    public RegistrationPage SetSubmit() {
+        submitButton.pressEnter();
+
+        return this;
+    }
+
 }
