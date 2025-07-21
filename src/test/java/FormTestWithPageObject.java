@@ -11,12 +11,12 @@ public class FormTestWithPageObject extends SetUp {
 
     @Test
     void formTestWithPageObject() {
-        registrationPage.openPage();
-        registrationPage.SetFirstName("Test");
-        registrationPage.SetLastName("Testov");
-        $("#userEmail").setValue("test@test.com");
-        $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("9899499099");
+        registrationPage.openPage()
+        .SetFirstName("Test")
+        .SetLastName("Testov")
+        .SetUserEmail("test@test.com")
+        .SetGenterWrapper("Male")
+        .SetUserNumber("9899499099");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1996");
