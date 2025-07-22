@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static com.codeborne.selenide.Condition.cssValue;
+import static com.codeborne.selenide.Selenide.$;
+
 public class FormTestWithPageObject extends SetUp {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -50,5 +53,18 @@ public class FormTestWithPageObject extends SetUp {
                 .CheckSubmit("Mobile", "9899499099")
                 .CheckSubmit("Date of Birth", "15 May,1996" );
 
+    }
+
+    @Test
+    void negativeFormTestMin() {
+        registrationPage.openPage()
+                .SetFirstName("Test")
+                .SetLastName("")
+                .SetGenterWrapper("Male")
+                .SetUserNumber("9899499099")
+                .SetDateOfBirth("15", "May", "1996")
+                .SetSubmit();
+
+        registrationPage.negSubmit();
     }
 }

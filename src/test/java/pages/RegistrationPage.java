@@ -113,4 +113,10 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage negSubmit() {
+        submitModalWindowComponent.negativeSubmit();
+
+        return this;
+    }
+
 }
