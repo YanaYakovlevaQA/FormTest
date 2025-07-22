@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.Components.CalendarComponent;
+import pages.Components.SubmitModalWindowComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    SubmitModalWindowComponent submitModalWindowComponent = new SubmitModalWindowComponent();
 
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -101,6 +103,12 @@ public class RegistrationPage {
 
     public RegistrationPage SetSubmit() {
         submitButton.pressEnter();
+
+        return this;
+    }
+
+    public RegistrationPage CheckSubmit(String key, String value) {
+        submitModalWindowComponent.submitModal(key, value);
 
         return this;
     }

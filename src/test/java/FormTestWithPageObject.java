@@ -25,16 +25,16 @@ public class FormTestWithPageObject extends SetUp {
                 .SetStateAndCity("J", "J")
                 .SetSubmit();
 
-        //Проверка формы
-        $(".table-responsive").shouldHave(text("Test Testov"));
-        $(".table-responsive").shouldHave(text("test@test.com"));
-        $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("9899499099"));
-        $(".table-responsive").shouldHave(text("15 May,1996"));
-        $(".table-responsive").shouldHave(text("Physics, Maths"));
-        $(".table-responsive").shouldHave(text("Sports"));
-        $(".table-responsive").shouldHave(text("Photo.png"));
-        $(".table-responsive").shouldHave(text("Екатеринбург, Родонитовая, 5с1"));
-        $(".table-responsive").shouldHave(text("Rajasthan Jaipur"));
+        registrationPage.CheckSubmit("Student Name", "Test Testov")
+                .CheckSubmit("Student Email", "test@test.com" )
+                .CheckSubmit("Gender","Male" )
+                .CheckSubmit("Mobile", "9899499099")
+                .CheckSubmit("Date of Birth", "15 May,1996" )
+                .CheckSubmit("Subjects","Physics, Maths")
+                .CheckSubmit("Hobbies", "Sports")
+                .CheckSubmit("Picture","Photo.png")
+                .CheckSubmit("Address","Екатеринбург, Родонитовая, 5с1")
+                .CheckSubmit("State and City","Rajasthan Jaipur");
+
     }
 }
