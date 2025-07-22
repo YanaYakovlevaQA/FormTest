@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.cssValue;
-import static com.codeborne.selenide.Selenide.$;
-
 public class FormTestWithPageObject extends SetUp {
 
     RegistrationPage registrationPage = new RegistrationPage();
