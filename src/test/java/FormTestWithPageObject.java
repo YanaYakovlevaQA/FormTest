@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-
 public class FormTestWithPageObject extends SetUp {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -35,6 +32,23 @@ public class FormTestWithPageObject extends SetUp {
                 .CheckSubmit("Picture","Photo.png")
                 .CheckSubmit("Address","Екатеринбург, Родонитовая, 5с1")
                 .CheckSubmit("State and City","Rajasthan Jaipur");
+
+    }
+
+    @Test
+    void sucsessFormTestMin() {
+        registrationPage.openPage()
+                .SetFirstName("Test")
+                .SetLastName("Testov")
+                .SetGenterWrapper("Male")
+                .SetUserNumber("9899499099")
+                .SetDateOfBirth("15", "May", "1996")
+                .SetSubmit();
+
+        registrationPage.CheckSubmit("Student Name", "Test Testov")
+                .CheckSubmit("Gender","Male" )
+                .CheckSubmit("Mobile", "9899499099")
+                .CheckSubmit("Date of Birth", "15 May,1996" );
 
     }
 }
