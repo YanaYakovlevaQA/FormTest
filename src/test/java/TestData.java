@@ -15,5 +15,11 @@ public class TestData {
                          phoneNumber = faker.phoneNumber().subscriberNumber(10),
                          day = String.valueOf(faker.random().nextInt(10, 27)),
                          month = (new SimpleDateFormat("MMMM", Locale.ENGLISH).format(DateOfBirthday)),
-                         year = String.valueOf(faker.random().nextInt(1992, 2012));
+                         year = String.valueOf(faker.random().nextInt(1992, 2012)),
+                         subjects = faker.options().option( "Maths", "English", "Physics", "Chemistry",
+                                 "Computer Science", "Economics"),
+                         subjects1 = faker.options().option( "Social Studies", "History", "Civics",
+                    "Commerce", "Biology"),
+                         hobbies = faker.options().option("Reading", "Sports", "Music"),
+                         picture = "PhotoToo.png";
     }

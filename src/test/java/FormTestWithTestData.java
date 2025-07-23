@@ -14,10 +14,10 @@ public class FormTestWithTestData extends SetUp {
                 .SetGenterWrapper(TestData.gender)
                 .SetUserNumber(TestData.phoneNumber)
                 .SetDateOfBirth(TestData.day, TestData.month, TestData.year)
-                .SetSubjects("Physics")
-                .SetSubjects("Maths")
-                .SetHobbies("Sports")
-                .SetPicture("img/Photo.png")
+                .SetSubjects(TestData.subjects)
+                .SetSubjects(TestData.subjects1)
+                .SetHobbies(TestData.hobbies)
+                .SetPicture(TestData.picture)
                 .SetAddress("Екатеринбург, Родонитовая, 5с1")
                 .SetStateAndCity("J", "J")
                 .SetSubmit();
@@ -27,9 +27,9 @@ public class FormTestWithTestData extends SetUp {
                 .CheckSubmit("Gender", TestData.gender)
                 .CheckSubmit("Mobile", TestData.phoneNumber)
                 .CheckSubmit("Date of Birth", TestData.day + " " + TestData.month + "," + TestData.year)
-                .CheckSubmit("Subjects","Physics, Maths")
-                .CheckSubmit("Hobbies", "Sports")
-                .CheckSubmit("Picture","Photo.png")
+                .CheckSubmit("Subjects", TestData.subjects + "," + " " + TestData.subjects1)
+                .CheckSubmit("Hobbies", TestData.hobbies)
+                .CheckSubmit("Picture", TestData.picture)
                 .CheckSubmit("Address","Екатеринбург, Родонитовая, 5с1")
                 .CheckSubmit("State and City","Rajasthan Jaipur");
 
