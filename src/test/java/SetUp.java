@@ -8,6 +8,5 @@ public class SetUp {
         Configuration.pageLoadStrategy = "eager";
         Configuration.timeout = 10000;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
     }
 }
