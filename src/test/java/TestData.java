@@ -21,5 +21,20 @@ public class TestData {
                          subjects1 = faker.options().option( "Social Studies", "History", "Civics",
                     "Commerce", "Biology"),
                          hobbies = faker.options().option("Reading", "Sports", "Music"),
-                         picture = "PhotoToo.png";
+                         picture = "PhotoToo.png",
+                         address = faker.address().fullAddress(),
+                         selectState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
+                         city = selectCity(selectState);
+
+
+    public static String selectCity(String state) {
+        return switch (state) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> null;
+        };
+
+    }
     }

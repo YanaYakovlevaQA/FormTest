@@ -18,8 +18,8 @@ public class FormTestWithTestData extends SetUp {
                 .SetSubjects(TestData.subjects1)
                 .SetHobbies(TestData.hobbies)
                 .SetPicture(TestData.picture)
-                .SetAddress("Екатеринбург, Родонитовая, 5с1")
-                .SetStateAndCity("J", "J")
+                .SetAddress(TestData.address)
+                .SetStateAndCity(TestData.selectState, TestData.city)
                 .SetSubmit();
 
         registrationPage.CheckSubmit("Student Name", TestData.firstName + " " + TestData.lastName)
@@ -30,8 +30,7 @@ public class FormTestWithTestData extends SetUp {
                 .CheckSubmit("Subjects", TestData.subjects + "," + " " + TestData.subjects1)
                 .CheckSubmit("Hobbies", TestData.hobbies)
                 .CheckSubmit("Picture", TestData.picture)
-                .CheckSubmit("Address","Екатеринбург, Родонитовая, 5с1")
-                .CheckSubmit("State and City","Rajasthan Jaipur");
-
+                .CheckSubmit("Address", TestData.address)
+                .CheckSubmit("State and City",TestData.selectState + " " + TestData.city);
     }
 }
