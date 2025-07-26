@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 import pages.TextBoxTextPage;
 
-public class TextBoxTests extends SetUp {
+public class TextBoxTests extends TestBase {
     TextBoxTextPage textBoxTextPage = new TextBoxTextPage();
 
     @Test

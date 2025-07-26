@@ -1,8 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.Components.CalendarComponent;
-import pages.Components.SubmitModalWindowComponent;
+import pages.components.CalendarComponent;
+import pages.components.SubmitModalWindowComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;

@@ -1,8 +1,6 @@
-package pages.Components;
+package pages.components;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static java.util.function.Predicate.not;
 
 public class CalendarComponent {
         public void setDate (String day, String month, String year) {
